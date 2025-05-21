@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokénoi - Pokémon Collection</title>
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/poppins');
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .content-wrapper {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Background Styles */
+        .pokemon-bg {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        
+        
+        /* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgba(255, 0, 0, 0.9);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .search-bar button {
+            padding: 0.5rem 1rem;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        /* Jumbotron Styles */
+        .jumbotron {
+            display: flex;
+            align-items: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .jumbotron-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+        
+        .jumbotron h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .jumbotron p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .jumbotron button {
+            padding: 0.8rem 1.5rem;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .jumbotron button:hover {
+            background-color: #e6b800;
+        }
+        
+        .jumbotron-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .jumbotron-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
+        
+        /* Card Section Styles */
+         .card-section {
+            padding: 1rem 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            background-image: url('https://preview.redd.it/y8fqbz7vy8i81.png?auto=webp&s=9ffda6673dd83bb0a66cc5bb7cceb0c1304e6711');
+            background-position: center;
+            background-size: 210vh;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .pokemon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pokemon-card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .pokemon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .card-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+        }
+        
+        .pokemon-card:hover .card-image img {
+            transform: scale(1.15);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            color: white;
+            font-size: 1.4rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card-content p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .pokemon-type {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            margin-top: 0.5rem;
+            margin-right: 0.3rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Type colors remain the same */
+        .type-grass {
+            background-color: #78c850;
+        }
+        
+        .type-fire {
+            background-color: #f08030;
+        }
+        
+        .type-water {
+            background-color: #6890f0;
+        }
+        
+        .type-electric {
+            background-color: #f8d030;
+            color: #333;
+        }
+        
+        .type-psychic {
+            background-color: #f85888;
+        }
+        
+        .type-dragon {
+            background: linear-gradient(135deg, #7038f8, #b8a038);
+        }
+        
+        .type-poison {
+            background-color: #a040a0;
+        }
+        
+        .type-flying {
+            background: linear-gradient(135deg, #a890f0, #a890f0 50%, #a8a878 50%, #a8a878);
+        }
+        
+        /* Custom card backgrounds based on type */
+        .card-electric {
+            background: linear-gradient(rgba(255, 216, 0, 0.2), rgba(255, 216, 0, 0.1));
+        }
+        
+        .card-fire {
+            background: linear-gradient(rgba(240, 128, 48, 0.2), rgba(240, 128, 48, 0.1));
+        }
+        
+        .card-grass {
+            background: linear-gradient(rgba(120, 200, 80, 0.2), rgba(120, 200, 80, 0.1));
+        }
+        
+        .card-water {
+            background: linear-gradient(rgba(104, 144, 240, 0.2), rgba(104, 144, 240, 0.1));
+        }
+        
+        .card-psychic {
+            background: linear-gradient(rgba(248, 88, 136, 0.2), rgba(248, 88, 136, 0.1));
+        }
+        
+        .card-dragon {
+            background: linear-gradient(rgba(112, 56, 248, 0.2), rgba(184, 160, 56, 0.1));
+        }
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://gd-hbimg.huaban.com/279aedff2c2702fe307d05a066437d5ed436a9437b4c9-cQaxP2_fw658webp');
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ffcc00;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .copyright {
+            padding-top: 1rem;
+            border-top: 1px solid #555;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin: 1rem 0;
+                gap: 1rem;
+            }
+            
+            .jumbotron {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .jumbotron-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .pokemon-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
+    }
+    </style>
+</head>
+<body class="pokemon-bg electric-bg">
+    <div class="content-wrapper">
+        <!-- Navbar Section -->
+        <nav class="navbar">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Pokémon Logo">
+            </div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Pokédex</a>
+                <a href="#">Games</a>
+                <a href="#">News</a>
+                <a href="#">About</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="TBD...">
+                <button>Go</button>
+            </div>
+        </nav>
+        
+        <!-- Jumbotron Section -->
+        <section class="jumbotron">
+            <div class="jumbotron-content">
+                <h1>Discover the World of Pokémon</h1>
+                <p>Explore hundreds of unique Pokémon, learn about their abilities, and build your dream team. Whether you're a seasoned trainer or just starting your journey, Pokénoi has everything you need to become a Pokémon Master!</p>
+                <button>Start Exploring</button>
+            </div>
+            <div class="jumbotron-image">
+                <img src="https://gd-hbimg.huaban.com/f554c90c4062856e959dff8923aec5017fc25ba0409a45-Qi9QE7_fw658webp" alt="Pikachu and Friends">
+            </div>
+        </section>
+        
+        <!-- Card Section -->
+        <section class="card-section">
+            <h2 class="section-title">Featured Pokémon</h2>
+            <div class="pokemon-grid">
+                <!-- Pokémon Card 1 -->
+                <div class="pokemon-card">
+                    <div class="card-image card-electric">
+                        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Pikachu">
+                    </div>
+                    <div class="card-content">
+                        <h3>Pikachu</h3>
+                        <p>When several of these Pokémon gather, their electricity could build and cause lightning storms.</p>
+                        <span class="pokemon-type type-electric">Electric</span>
+                    </div>
+                </div>
+                
+                <!-- Pokémon Card 2 -->
+                <div class="pokemon-card">
+                    <div class="card-image card-fire">
+                        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Charizard">
+                    </div>
+                    <div class="card-content">
+                        <h3>Charizard</h3>
+                        <p>It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames.</p>
+                        <span class="pokemon-type type-fire">Fire</span>
+                        <span class="pokemon-type type-flying">Flying</span>
+                    </div>
+                </div>
+                
+                <!-- Pokémon Card 3 -->
+                <div class="pokemon-card">
+                    <div class="card-image card-grass">
+                        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png" alt="Venusaur">
+                    </div>
+                    <div class="card-content">
+                        <h3>Venusaur</h3>
+                        <p>Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.</p>
+                        <span class="pokemon-type type-grass">Grass</span>
+                        <span class="pokemon-type type-poison">Poison</span>
+                    </div>
+                </div>
+                
+                <!-- Pokémon Card 4 -->
+                <div class="pokemon-card">
+                    <div class="card-image card-water">
+                        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png" alt="Blastoise">
+                    </div>
+                    <div class="card-content">
+                        <h3>Blastoise</h3>
+                        <p>It crushes its foe under its heavy body to cause fainting. In a pinch, it will withdraw inside its shell.</p>
+                        <span class="pokemon-type type-water">Water</span>
+                    </div>
+                </div>
+                
+                <!-- Pokémon Card 5 -->
+                <div class="pokemon-card">
+                    <div class="card-image card-psychic">
+                        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png" alt="Mewtwo">
+                    </div>
+                    <div class="card-content">
+                        <h3>Mewtwo</h3>
+                        <p>It was created by a scientist after years of horrific gene splicing and DNA engineering experiments.</p>
+                        <span class="pokemon-type type-psychic">Psychic</span>
+                    </div>
+                </div>
+                
+                <!-- Pokémon Card 6 -->
+                <div class="pokemon-card">
+                    <div class="card-image card-dragon">
+                        <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png" alt="Dragonite">
+                    </div>
+                    <div class="card-content">
+                        <h3>Dragonite</h3>
+                        <p>It is said that this Pokémon lives somewhere in the sea and that it flies. However, it is only a rumor.</p>
+                        <span class="pokemon-type type-dragon">Dragon</span>
+                        <span class="pokemon-type type-flying">Flying</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#">Pokédex</a></li>
+                    <li><a href="#">Pokémon Games</a></li>
+                    <li><a href="#">Pokémon TV</a></li>
+                    <li><a href="#">Pokémon Events</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Parent's Guide</a></li>
+                    <li><a href="#">Customer Service</a></li>
+                    <li><a href="#">About Our Ads</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Pokénoi</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Newsroom</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Pokénoi. Pokémon and all respective names are trademarks of Nintendo. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
