@@ -6,8 +6,6 @@
     <title>Pokénoi - Pokémon Collection</title>
     <style>
         @import url('https://fonts.cdnfonts.com/css/poppins');
-
-        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +24,6 @@
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
         }
         
-        /* Background Styles */
         .pokemon-bg {
             background-size: cover;
             background-position: center;
@@ -34,7 +31,6 @@
             background-repeat: no-repeat;
         
         
-        /* Navbar Styles */
         .navbar {
             display: flex;
             justify-content: space-between;
@@ -95,7 +91,6 @@
             cursor: pointer;
         }
         
-        /* Jumbotron Styles */
         .jumbotron {
             display: flex;
             align-items: center;
@@ -146,8 +141,7 @@
             height: auto;
             max-height: 300px;
         }
-        
-        /* Card Section Styles */
+
          .card-section {
             padding: 1rem 2rem;
             background-color: rgba(255, 255, 255, 0.1);
@@ -256,42 +250,31 @@
             color: white;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-        
-        /* Type colors remain the same */
         .type-grass {
             background-color: #78c850;
         }
-        
         .type-fire {
             background-color: #f08030;
         }
-        
         .type-water {
             background-color: #6890f0;
         }
-        
         .type-electric {
             background-color: #f8d030;
             color: #333;
         }
-        
         .type-psychic {
             background-color: #f85888;
         }
-        
         .type-dragon {
             background: linear-gradient(135deg, #7038f8, #b8a038);
         }
-        
         .type-poison {
             background-color: #a040a0;
         }
-        
         .type-flying {
             background: linear-gradient(135deg, #a890f0, #a890f0 50%, #a8a878 50%, #a8a878);
         }
-        
-        /* Custom card backgrounds based on type */
         .card-electric {
             background: linear-gradient(rgba(255, 216, 0, 0.2), rgba(255, 216, 0, 0.1));
         }
@@ -315,7 +298,7 @@
         .card-dragon {
             background: linear-gradient(rgba(112, 56, 248, 0.2), rgba(184, 160, 56, 0.1));
         }
-        /* Footer Styles */
+
         footer {
             background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://gd-hbimg.huaban.com/279aedff2c2702fe307d05a066437d5ed436a9437b4c9-cQaxP2_fw658webp');
             color: white;
@@ -366,7 +349,6 @@
             border-top: 1px solid #555;
         }
         
-        /* Responsive Design */
         @media (max-width: 768px) {
             .navbar {
                 flex-direction: column;
@@ -397,7 +379,6 @@
 </head>
 <body class="pokemon-bg electric-bg">
     <div class="content-wrapper">
-        <!-- Navbar Section -->
         <nav class="navbar">
             <div class="logo">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg" alt="Pokémon Logo">
@@ -414,8 +395,6 @@
                 <button>Go</button>
             </div>
         </nav>
-        
-        <!-- Jumbotron Section -->
         <section class="jumbotron">
             <div class="jumbotron-content">
                 <h1>Discover the World of Pokémon</h1>
@@ -426,12 +405,9 @@
                 <img src="https://gd-hbimg.huaban.com/f554c90c4062856e959dff8923aec5017fc25ba0409a45-Qi9QE7_fw658webp" alt="Pikachu and Friends">
             </div>
         </section>
-        
-        <!-- Card Section -->
         <section class="card-section">
             <h2 class="section-title">Featured Pokémon</h2>
             <div class="pokemon-grid">
-                <!-- Pokémon Card 1 -->
                 <div class="pokemon-card">
                     <div class="card-image card-electric">
                         <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png" alt="Pikachu">
@@ -442,8 +418,6 @@
                         <span class="pokemon-type type-electric">Electric</span>
                     </div>
                 </div>
-                
-                <!-- Pokémon Card 2 -->
                 <div class="pokemon-card">
                     <div class="card-image card-fire">
                         <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/006.png" alt="Charizard">
@@ -455,8 +429,6 @@
                         <span class="pokemon-type type-flying">Flying</span>
                     </div>
                 </div>
-                
-                <!-- Pokémon Card 3 -->
                 <div class="pokemon-card">
                     <div class="card-image card-grass">
                         <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png" alt="Venusaur">
@@ -468,8 +440,6 @@
                         <span class="pokemon-type type-poison">Poison</span>
                     </div>
                 </div>
-                
-                <!-- Pokémon Card 4 -->
                 <div class="pokemon-card">
                     <div class="card-image card-water">
                         <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/009.png" alt="Blastoise">
@@ -480,8 +450,6 @@
                         <span class="pokemon-type type-water">Water</span>
                     </div>
                 </div>
-                
-                <!-- Pokémon Card 5 -->
                 <div class="pokemon-card">
                     <div class="card-image card-psychic">
                         <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png" alt="Mewtwo">
@@ -492,8 +460,6 @@
                         <span class="pokemon-type type-psychic">Psychic</span>
                     </div>
                 </div>
-                
-                <!-- Pokémon Card 6 -->
                 <div class="pokemon-card">
                     <div class="card-image card-dragon">
                         <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png" alt="Dragonite">
@@ -508,8 +474,6 @@
             </div>
         </section>
     </div>
-    
-    <!-- Footer Section -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
