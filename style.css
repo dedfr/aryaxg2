@@ -1,308 +1,371 @@
-@import url('https://fonts.cdnfonts.com/css/devil-breeze');
-@import url('https://fonts.cdnfonts.com/css/poppins');
-@import url('https://fonts.cdnfonts.com/css/bimbo');
- body{
-    scroll-behavior: smooth;
-}
-body{
-    background-color: #1B1B1B;
-    background-image:
-    url(images/bg.png),
-    repeating-linear-gradient(
-        to right, transparent 0 500px, #73814B33 500px 501px
-    );
-    background-size: 100%;
-    margin: 0;
-    font-size: 14px;
-    color: #eef8ce;
-    font-family: 'Poppins', sans-serif;
-}
-a{
-    color: #eef8ce;
-    text-decoration: none;
-}
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    list-style: none;
-}
-main{
-    width: min(100vw, 100vw);
-    margin: auto;
-    padding: 20px;
-}
-header {
-    padding-block: 1em;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10px;
-    backdrop-filter: blur(20px);
-    z-index: 100;
-    background-color: #1B1B1B11;
-    background-image: repeating-linear-gradient(
-        to right, transparent 0 500px, #eee1 500px 501px
-    );
-}
-header .content-fit {
-    
-    justify-content: space-between;
-    align-items: center;
-    padding-block: unset!important;
-}
-header .content-fit nav ul{
-    display: flex;
-    gap: 2em;
-}
-*::-webkit-scrollbar {
-    width: 0;
-}
-* {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    box-sizing: border-box;
-}
-.section {
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+        @import url('https://fonts.cdnfonts.com/css/poppins');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            color: white;
+            min-height: 100vh;
+        }
+        
+        .content-wrapper {
+            background-color: rgba(255, 255, 255, 0.9);
+            margin: 0 auto;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pokemon-bg {
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: rgba(255, 0, 0, 0.9);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffcc00;
+        }
+        
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        
+        .search-bar input {
+            padding: 0.5rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .search-bar button {
+            padding: 0.5rem 1rem;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .jumbotron {
+            display: flex;
+            align-items: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1542779283-429940ce8336?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+        
+        .jumbotron-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+        
+        .jumbotron h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .jumbotron p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .jumbotron button {
+            padding: 0.8rem 1.5rem;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .jumbotron button:hover {
+            background-color: #e6b800;
+        }
+        
+        .jumbotron-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .jumbotron-image img {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+        }
 
-.content-fit {
-    display: flex;
-    width: min(1200px, 90vw);
-    margin: auto;
-    position: relative;
-    padding-block: 10em;
-}
-.banner .content{
-    font-family: "Odibee Sans", sans-serif;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.banner .content h1{
-    font-size: 17em;
-}
-.banner .content .right{
-    text-align: right;
-    transform: translateY(-30px);
-}
-.banner .content .right h2{
-    font-size: 7em;
-    font-weight: 200;
-}
-.banner .image{
-    width: 100%;
-    height: 600px;
-    background-image: url(images/banner.png);
-    position: relative;
-}
-.banner .image img{
-    position: absolute;
-    height: 130%;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0px;
-}
+         .card-section {
+            padding: 0rem 2rem;
+            padding-bottom: 2rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            background-image: url('https://preview.redd.it/y8fqbz7vy8i81.png?auto=webp&s=9ffda6673dd83bb0a66cc5bb7cceb0c1304e6711');
+            background-position: center;
+            background-size: 210vh;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: #ffcc00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .pokemon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .pokemon-card {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .pokemon-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .card-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        
+        .card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+        }
+        
+        .pokemon-card:hover .card-image img {
+            transform: scale(1.15);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        
+        .card-content h3 {
+            margin-bottom: 0.5rem;
+            color: white;
+            font-size: 1.4rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .card-content p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        .pokemon-type {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            margin-top: 0.5rem;
+            margin-right: 0.3rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .type-grass {
+            background-color: #78c850;
+        }
+        .type-fire {
+            background-color: #f08030;
+        }
+        .type-water {
+            background-color: #6890f0;
+        }
+        .type-electric {
+            background-color: #f8d030;
+            color: #333;
+        }
+        .type-psychic {
+            background-color: #f85888;
+        }
+        .type-dragon {
+            background: linear-gradient(135deg, #7038f8, #b8a038);
+        }
+        .type-poison {
+            background-color: #a040a0;
+        }
+        .type-flying {
+            background: linear-gradient(135deg, #a890f0, #a890f0 50%, #a8a878 50%, #a8a878);
+        }
+        .card-electric {
+            background: linear-gradient(rgba(255, 216, 0, 0.2), rgba(255, 216, 0, 0.1));
+        }
+        
+        .card-fire {
+            background: linear-gradient(rgba(240, 128, 48, 0.2), rgba(240, 128, 48, 0.1));
+        }
+        
+        .card-grass {
+            background: linear-gradient(rgba(120, 200, 80, 0.2), rgba(120, 200, 80, 0.1));
+        }
+        
+        .card-water {
+            background: linear-gradient(rgba(104, 144, 240, 0.2), rgba(104, 144, 240, 0.1));
+        }
+        
+        .card-psychic {
+            background: linear-gradient(rgba(248, 88, 136, 0.2), rgba(248, 88, 136, 0.1));
+        }
+        
+        .card-dragon {
+            background: linear-gradient(rgba(112, 56, 248, 0.2), rgba(184, 160, 56, 0.1));
+        }
 
-.grid figure img{
-    width: 100%;
-}
-
-.grid{
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(var(--row), 100px);
-    margin-top: 50px;
-    gap: 50px;
-}
-.grid-1 figure:nth-child(1){
-    grid-column: 2 / 6;
-    grid-row: 1;
-}
-.grid-1 figure:nth-child(2){
-    grid-column: 3 / 5;
-    grid-row: 1;
-}
-.grid-1 h2:nth-child(3){
-    font-size: 7em;
-    grid-column: 1 / 7;
-    text-align: center;
-    grid-row: 5;
-    z-index: 1;
-}
-.grid-1{
-    --row: 2;
-}
-.grid-2{
-    --row: 8;
-    text-align: justify;
-    font-size: 1.3em;
-}
-.grid-2 div:nth-child(1){
-    grid-column: 2 / 4;
-    grid-row: 2;
-}
-.grid-2 div:nth-child(2){
-    grid-column: 4 / 6;
-    grid-row: 1;
-}
-.grid-2 div:nth-child(3){
-    grid-column: 4 / 6;
-    grid-row: 3;
-}
-.grid-2 div:nth-child(4){
-    grid-column: 1 / 4;
-    grid-row: 6;
-}
-.grid-3{
-    --row: 6;
-    font-size: 10em;
-}
-.grid-3 div{
-    grid-column: 2/ 6;
-    text-wrap: nowrap;
-}
-.grid-3 div:nth-child(even){
-    text-align: right;
-}
-
-.grid-3 div:nth-child(5){
-    grid-column: 2/ 2;
-}
-.grid-3 div:nth-child(4){
-    grid-column: 1/ 5;
-}
-footer{
-    border-top: 1px solid #2E373A55;
-    min-height: 100vh;
-}
-footer .content{
-    width: min(1400px, 100vw);
-    margin: auto;
-    padding: 100px 20px;
-}
-.grid-5{
-    --row: 5;
-    text-align: justify;
-    font-size:1.7em;
-}
-.grid-5 div:nth-child(1){
-    grid-row: 1;
-    grid-column: 1 / 3;
-}
-.grid-5 div:nth-child(2){
-    grid-row: 2;
-    grid-column: 3 / 5;
-}
-.grid-5 div:nth-child(3){
-    grid-row: 3;
-    grid-column: 5 / 7;
-}
-.grid-5 div:nth-child(4){
-    grid-row: 1;
-    grid-column: 5 / 7;
-}
-
-@media screen and (max-width: 1023px){
-    header img{
-        height: 2em;
+        footer {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('https://gd-hbimg.huaban.com/279aedff2c2702fe307d05a066437d5ed436a9437b4c9-cQaxP2_fw658webp');
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #ffcc00;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: #ffcc00;
+        }
+        
+        .copyright {
+            padding-top: 1rem;
+            border-top: 1px solid #555;
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .nav-links {
+                margin: 1rem 0;
+                gap: 1rem;
+            }
+            
+            .jumbotron {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .jumbotron-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            
+            .pokemon-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+        }
     }
-    .banner .content h1{
-        font-size: 12em;
-    }
-    .banner .content .right{
-        transform: none;
-    }
-    .grid-2 div:nth-child(1){
-        grid-row: 2;
-    }
-    .grid-2 div:nth-child(3){
-        grid-row: 6;
-    }
-    .grid-2 div:nth-child(4){
-        grid-row: 5;
-    }
-    .grid-3{
-        font-size: 5em;
-        line-height: 1em;
-    }
-}
-@media screen and (max-width: 1023px){
-    header img{
-        height: unset;
-        width: 100%;
-    }
-    .banner .content h1{
-        font-size: 7em;
-    }
-    .banner .content{
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .banner{
-        overflow: hidden;
-    }
-    .grid-1 h2:nth-child(3){
-        font-size: 3em;
-    }
-    .grid{
-        display: block;
-    }
-    .grid-3{
-        font-size: 4em;
-        display: block;
-        margin-bottom: 100px;
-    }
-}
-
-.autoRotate{
-    animation: autoRotateAnimation;
-    animation-timeline: view();
-}
-@keyframes autoRotateAnimation{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(440deg);
-    }
-}
-.autoShow{
-    animation: autoShowAnimation both;
-    animation-timeline: view(70% 5%);
-
-}
-@keyframes autoShowAnimation{
-    from{
-        opacity: 0;
-        transform: translateY(200px) scale(0.3);
-    }to{
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
-}
-.autoBLur{
-    animation: autoBLurAnimation linear both;
-    animation-timeline: view();
-}
-@keyframes autoBLurAnimation{
-    0%{
-        filter: blur(40px);
-    }
-    45%, 55%{
-        filter: blur(0px);
-    }
-    100%{
-        filter: blur(40px);
-    }
-}
